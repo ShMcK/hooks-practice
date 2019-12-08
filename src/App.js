@@ -1,5 +1,5 @@
 import React from 'react'
-import Counter from './components/Counter/useState'
+import Counter from './components/Counter/useEffect'
 import { Container, Content } from 'rsuite'
 
 class App extends React.Component {
