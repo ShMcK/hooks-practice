@@ -2,7 +2,7 @@ import React from 'react'
 import { Panel, PanelGroup, ButtonToolbar, Button } from 'rsuite'
 import './styles.css'
 
-const useCounter = initialCount => {
+export const useCounter = initialCount => {
 	const [count, setCount] = React.useState(initialCount)
 
 	const increment = () => {
