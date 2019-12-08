@@ -1,6 +1,6 @@
 import React from 'react'
 
-const useForm = ({ initialValues, loadInitialValues }) => {
+const useForm = ({ initialValues }) => {
 	const [values, setValues] = React.useState(initialValues)
 
 	const handleChange = values => {

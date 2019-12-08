@@ -11,7 +11,7 @@ const styles = {
 	},
 }
 
-const Counter = ({ initialCount }) => {
+const useCounter = initialCount => {
 	const [count, setCount] = React.useState(initialCount)
 
 	const increment = () => {
@@ -25,6 +25,17 @@ const Counter = ({ initialCount }) => {
 	const reset = () => {
 		setCount(initialCount)
 	}
+
+	return {
+		count,
+		increment,
+		decrement,
+		reset,
+	}
+}
+
+const Counter = ({ initialCount }) => {
+	const { count, increment, decrement, reset } = useCounter(initialCount)
 
 	return (
 		<Panel style={styles.container}>
