@@ -34,7 +34,7 @@ const Counter = () => {
 	return (
 		<Panel className="Counter" header={<h5>useEffect</h5>}>
 			<PanelGroup className="Counter_Header">
-				{loading ? <p>Loading...</p> : <h3>{count}</h3>}
+				{loading ? <p>Loading...</p> : <h3 id="count">{count}</h3>}
 			</PanelGroup>
 		</Panel>
 	)

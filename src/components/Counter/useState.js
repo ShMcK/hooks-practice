@@ -35,7 +35,7 @@ const Counter = ({ initialCount }) => {
 	return (
 		<Panel className="Counter" header={<h5>useState</h5>}>
 			<PanelGroup className="Counter_Header">
-				<h3>{state.count}</h3>
+				<h3 id="count">{state.count}</h3>
 			</PanelGroup>
 			<PanelGroup>
 				<ButtonToolbar>

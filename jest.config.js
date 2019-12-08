@@ -7,4 +7,9 @@ module.exports = {
 	// Use this configuration option to add custom reporters to Jest
 	// jest-tap-reporter is used by CodeRoad
 	reporters: ['jest-tap-reporter'],
+
+	// mock modules
+	moduleNameMapper: {
+		'\\.(css|less)$': 'identity-obj-proxy',
+	},
 }
