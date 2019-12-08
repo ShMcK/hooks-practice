@@ -12,16 +12,32 @@ const styles = {
 }
 
 const Counter = ({ initialCount }) => {
+	const [count, setCount] = React.useState(initialCount)
+
+	const increment = () => {
+		setCount(c => c + 1)
+	}
+
+	const decrement = () => {
+		setCount(c => (c > 0 ? c - 1 : 0))
+	}
+
+	const reset = () => {
+		setCount(initialCount)
+	}
+
 	return (
 		<Panel style={styles.container}>
 			<PanelGroup style={styles.header}>
-				<h3>{initialCount}</h3>
+				<h3>{count}</h3>
 			</PanelGroup>
 			<PanelGroup>
 				<ButtonToolbar>
-					<Button>+</Button>
-					<Button>-</Button>
-					<Button appearance="subtle">RESET</Button>
+					<Button onClick={increment}>+</Button>
+					<Button onClick={decrement}>-</Button>
+					<Button onClick={reset} appearance="subtle">
+						RESET
+					</Button>
 				</ButtonToolbar>
 			</PanelGroup>
 		</Panel>
