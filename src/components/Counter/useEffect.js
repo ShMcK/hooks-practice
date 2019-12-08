@@ -1,20 +1,11 @@
 import React from 'react'
 import { Panel, PanelGroup } from 'rsuite'
-
-const styles = {
-	container: {
-		width: '10rem',
-	},
-	header: {
-		display: 'flex',
-		justifyContent: 'center',
-	},
-}
+import './styles.css'
 
 const apiCall = async () => {
 	// timeout
 	await new Promise(resolve => {
-		setTimeout(resolve, 1000)
+		setTimeout(resolve, 2000)
 	})
 	const value = Math.floor(Math.random(0, 1) * 10)
 	return value
@@ -41,8 +32,8 @@ const Counter = () => {
 	const { loading, count } = useCounter()
 
 	return (
-		<Panel style={styles.container}>
-			<PanelGroup style={styles.header}>
+		<Panel className="Counter" header={<h5>useEffect</h5>}>
+			<PanelGroup className="Counter_Header">
 				{loading ? <p>Loading...</p> : <h3>{count}</h3>}
 			</PanelGroup>
 		</Panel>

@@ -1,37 +1,28 @@
 import React from 'react'
 import { Panel, PanelGroup, ButtonToolbar, Button } from 'rsuite'
+import './styles.css'
 
-const styles = {
-	container: {
-		width: '12rem',
-	},
-	header: {
-		display: 'flex',
-		justifyContent: 'center',
-	},
-}
-
-export const counterReducer = (state, action, init) => {
+const counterReducer = init => (state, action) => {
 	switch (action) {
 		case 'INCREMENT':
 			return { count: state.count + 1 }
 		case 'DECREMENT':
 			return { count: state.count > 0 ? state.count - 1 : 0 }
 		case 'RESET':
-			return { count: init.count }
+			return { count: init }
 		default:
 			return state
 	}
 }
 
 const Counter = ({ initialCount }) => {
-	const [state, dispatch] = React.useReducer(counterReducer, {
+	const [state, dispatch] = React.useReducer(counterReducer(initialCount), {
 		count: initialCount,
 	})
 
 	return (
-		<Panel style={styles.container}>
-			<PanelGroup style={styles.header}>
+		<Panel className="Counter" header={<h5>useReducer</h5>}>
+			<PanelGroup className="Counter_Header">
 				<h3>{state.count}</h3>
 			</PanelGroup>
 			<PanelGroup>

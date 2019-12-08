@@ -1,15 +1,6 @@
 import React from 'react'
 import { Panel, PanelGroup, ButtonToolbar, Button } from 'rsuite'
-
-const styles = {
-	container: {
-		width: '12rem',
-	},
-	header: {
-		display: 'flex',
-		justifyContent: 'center',
-	},
-}
+import './styles.css'
 
 const useCounter = initialCount => {
 	const [count, setCount] = React.useState(initialCount)
@@ -27,26 +18,30 @@ const useCounter = initialCount => {
 	}
 
 	return {
-		count,
-		increment,
-		decrement,
-		reset,
+		state: {
+			count,
+		},
+		methods: {
+			increment,
+			decrement,
+			reset,
+		},
 	}
 }
 
 const Counter = ({ initialCount }) => {
-	const { count, increment, decrement, reset } = useCounter(initialCount)
+	const { state, methods } = useCounter(initialCount)
 
 	return (
-		<Panel style={styles.container}>
-			<PanelGroup style={styles.header}>
-				<h3>{count}</h3>
+		<Panel className="Counter" header={<h5>useState</h5>}>
+			<PanelGroup className="Counter_Header">
+				<h3>{state.count}</h3>
 			</PanelGroup>
 			<PanelGroup>
 				<ButtonToolbar>
-					<Button onClick={increment}>+</Button>
-					<Button onClick={decrement}>-</Button>
-					<Button onClick={reset} appearance="subtle">
+					<Button onClick={methods.increment}>+</Button>
+					<Button onClick={methods.decrement}>-</Button>
+					<Button onClick={methods.reset} appearance="subtle">
 						RESET
 					</Button>
 				</ButtonToolbar>

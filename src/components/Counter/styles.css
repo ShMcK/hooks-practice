@@ -1,0 +1,15 @@
+.Content {
+	display: flex;
+	flex-direction: row;
+}
+
+.Counter {
+	width: 10rem;
+	border: 1px solid grey;
+	margin: 1rem;
+}
+
+.Counter_Header {
+	display: flex;
+	justify-content: center;
+}
